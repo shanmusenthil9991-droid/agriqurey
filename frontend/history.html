@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Question History — AGRI QUREY</title>
+  <meta name="description" content="See every crop-disease question you've asked CropCare AI and how each one was classified.">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Fonts: Fraunces (display) + Work Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ===== Navbar ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg sticky-top cc-navbar" aria-label="Primary">
+      <div class="container">
+        <a class="navbar-brand cc-brand" href="index.html">
+          <span class="cc-brand-mark" aria-hidden="true">🌱</span>
+          <span>AGRIQUREY <span class="cc-brand-accent">AI</span></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ccNavMenu"
+          aria-controls="ccNavMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ccNavMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="history.html">History</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="cc-ask-page">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+
+            <p class="cc-kicker text-center">Your past classifications</p>
+            <h1 class="cc-ask-page-title text-center">Question History</h1>
+            <p class="cc-ask-page-subtitle text-center">
+              Every question you've asked on this device, with the category CropCare AI predicted.
+            </p>
+
+            <!-- ===== History list ===== -->
+            <div id="historyList" class="cc-history-list d-none"></div>
+
+            <div class="d-flex justify-content-center cc-result-actions" id="historyActions" style="display:none;">
+              <button type="button" id="clearHistoryBtn" class="btn cc-btn-ghost">
+                <i class="bi bi-trash3 me-2" aria-hidden="true"></i>Clear History
+              </button>
+            </div>
+
+            <!-- ===== Empty state ===== -->
+            <div id="historyEmpty" class="d-none">
+              <div class="cc-result-card cc-result-card-muted text-center">
+                <i class="bi bi-clock-history cc-unclassified-icon" aria-hidden="true"></i>
+                <h2 class="cc-unclassified-title">No questions yet.</h2>
+                <p class="cc-unclassified-text">
+                  Questions you ask will show up here so you can look back at what you asked and
+                  what CropCare AI told you.
+                </p>
+              </div>
+              <div class="d-flex justify-content-center cc-result-actions">
+                <a href="ask.html" class="btn btn-lg cc-btn-primary">
+                  <i class="bi bi-chat-dots-fill me-2" aria-hidden="true"></i>Ask a Question
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="cc-footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4">
+          <a class="cc-brand cc-footer-brand" href="index.html">
+            <span aria-hidden="true">🌱</span>
+            <span>CropCare <span class="cc-brand-accent">AI</span></span>
+          </a>
+          <p class="cc-footer-text">
+            Helping farmers understand what kind of crop-disease information they're looking for.
+          </p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h4 class="cc-footer-heading">Navigate</h4>
+          <ul class="cc-footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h4 class="cc-footer-heading">Categories</h4>
+          <ul class="cc-footer-links">
+            <li>Symptoms</li>
+            <li>Prevention</li>
+            <li>Management</li>
+            <li>General Information</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h4 class="cc-footer-heading">Please note</h4>
+          <p class="cc-footer-text">
+            This tool classifies questions only. It does not diagnose crop diseases or replace
+            professional agricultural advice.
+          </p>
+        </div>
+      </div>
+      <hr class="cc-footer-rule">
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+        <p class="cc-footer-copy mb-0">&copy; 2026 CropCare AI. Built for farmers.</p>
+        <p class="cc-footer-copy mb-0">A question classifier, not a diagnostic tool.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/js/history.js"></script>
+</body>
+</html>

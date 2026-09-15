@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluation Dashboard — AGRI QUREY</title>
+  <meta name="description" content="Academic evaluation dashboard for the CropCare AI crop-disease question classifier: accuracy, precision, recall, F1, confusion matrix, and zero-shot vs. few-shot comparison.">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Fonts: Fraunces (display) + Work Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ===== Navbar ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg sticky-top cc-navbar" aria-label="Primary">
+      <div class="container">
+        <a class="navbar-brand cc-brand" href="index.html">
+          <span class="cc-brand-mark" aria-hidden="true">🌱</span>
+          <span>AGRIQUREY <span class="cc-brand-accent">AI</span></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ccNavMenu"
+          aria-controls="ccNavMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ccNavMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="ask.html">Ask Question</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#how-it-works">How It Works</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="admin.html">Evaluation</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="cc-adm-page">
+      <div class="container">
+
+        <!-- ===== Header ===== -->
+        <div class="cc-adm-header">
+          <div>
+            <p class="cc-kicker">Academic evaluation</p>
+            <h1 class="cc-adm-title">Evaluation Dashboard</h1>
+            <p class="cc-adm-subtitle">
+              Held-out test-set performance of the crop-disease question classifier, read directly
+              from <code>GET /api/evaluation</code>. Nothing on this page is hardcoded — figures
+              reflect whatever evaluation artifacts currently exist on disk.
+            </p>
+          </div>
+          <div class="d-flex flex-column align-items-end gap-2">
+            <span id="statusPill" class="cc-adm-status-pill cc-adm-status-empty">
+              <i class="bi bi-hourglass-split" aria-hidden="true"></i>
+              <span id="statusPillText">Checking for evaluation data…</span>
+            </span>
+            <button type="button" id="refreshBtn" class="btn btn-sm cc-btn-ghost cc-adm-refresh-btn">
+              <i class="bi bi-arrow-clockwise me-1" aria-hidden="true"></i>Refresh
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== Loading state ===== -->
+        <div id="loadingState" class="cc-adm-loading">
+          <div class="spinner-border text-success" role="status" aria-hidden="true"></div>
+          <span>Loading evaluation data…</span>
+        </div>
+
+        <!-- ===== Empty state: no evaluation run yet ===== -->
+        <div id="emptyState" class="cc-adm-empty d-none" role="status">
+          <i class="bi bi-clipboard-x" aria-hidden="true"></i>
+          <h2>No evaluation results available yet.</h2>
+          <p id="emptyStateMessage" class="mb-0">
+            Run <code>python -m backend.evaluation.evaluate_classifier</code> to generate a report,
+            then refresh this page.
+          </p>
+        </div>
+
+        <!-- ===== Fetch error state ===== -->
+        <div id="errorState" class="cc-adm-empty d-none" role="alert">
+          <i class="bi bi-wifi-off" aria-hidden="true"></i>
+          <h2>Couldn't reach the evaluation API.</h2>
+          <p id="errorStateMessage" class="mb-0">Check that the Flask backend is running, then try Refresh.</p>
+        </div>
+
+        <!-- ===== Populated dashboard ===== -->
+        <div id="dashboardContent" class="d-none">
+
+          <p id="generatedAtNote" class="cc-adm-panel-note mb-4"></p>
+
+          <!-- KPI cards -->
+          <div class="row g-3 mb-4">
+            <div class="col-6 col-lg-3">
+              <div class="cc-adm-kpi-card">
+                <p class="cc-adm-kpi-label">Total Test Questions</p>
+                <p id="kpiTotal" class="cc-adm-kpi-value">—</p>
+                <p id="kpiTotalSub" class="cc-adm-kpi-sub"></p>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="cc-adm-kpi-card">
+                <p class="cc-adm-kpi-label">Accuracy</p>
+                <p id="kpiAccuracy" class="cc-adm-kpi-value">—</p>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="cc-adm-kpi-card">
+                <p class="cc-adm-kpi-label">Precision</p>
+                <p id="kpiPrecision" class="cc-adm-kpi-value">—</p>
+                <p class="cc-adm-kpi-sub">Macro-averaged</p>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="cc-adm-kpi-card">
+                <p class="cc-adm-kpi-label">Recall</p>
+                <p id="kpiRecall" class="cc-adm-kpi-value">—</p>
+                <p class="cc-adm-kpi-sub">Macro-averaged</p>
+              </div>
+            </div>
+          </div>
+          <div class="row g-3 mb-4">
+            <div class="col-6 col-lg-3">
+              <div class="cc-adm-kpi-card">
+                <p class="cc-adm-kpi-label">F1 Score</p>
+                <p id="kpiF1" class="cc-adm-kpi-value">—</p>
+                <p class="cc-adm-kpi-sub">Macro-averaged</p>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="cc-adm-kpi-card">
+                <p class="cc-adm-kpi-label">Scored Questions</p>
+                <p id="kpiScored" class="cc-adm-kpi-value">—</p>
+                <p class="cc-adm-kpi-sub">Excludes system failures</p>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="cc-adm-kpi-card">
+                <p class="cc-adm-kpi-label">System Failures</p>
+                <p id="kpiFailures" class="cc-adm-kpi-value">—</p>
+                <p class="cc-adm-kpi-sub">Excluded from scoring</p>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="cc-adm-kpi-card">
+                <p class="cc-adm-kpi-label">"Unable to Classify"</p>
+                <p id="kpiUnable" class="cc-adm-kpi-value">—</p>
+                <p class="cc-adm-kpi-sub">Fallback predictions</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Performance table + category distribution chart -->
+          <div class="row g-4 mb-4">
+            <div class="col-lg-5">
+              <div class="cc-adm-panel">
+                <h2 class="cc-adm-panel-title">Performance Summary</h2>
+                <table class="cc-adm-table">
+                  <thead>
+                    <tr><th>Metric</th><th class="cc-adm-num">Score</th></tr>
+                  </thead>
+                  <tbody id="performanceTableBody">
+                  </tbody>
+                </table>
+                <p class="cc-adm-panel-note">
+                  Precision, Recall, and F1 are macro-averaged across the four primary categories
+                  (Symptoms, Prevention, Management, General Information).
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="cc-adm-panel">
+                <h2 class="cc-adm-panel-title">Test-Set Category Distribution</h2>
+                <div class="cc-adm-chart-wrap">
+                  <canvas id="categoryChart" aria-label="Bar chart of ground-truth category counts in the test set" role="img"></canvas>
+                </div>
+                <p class="cc-adm-panel-note">
+                  Ground-truth counts per category in the held-out test set (not predictions).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Confusion matrix -->
+          <div class="row g-4 mb-4">
+            <div class="col-12">
+              <div class="cc-adm-panel">
+                <h2 class="cc-adm-panel-title">Confusion Matrix</h2>
+                <div class="cc-adm-confusion-wrap">
+                  <table class="cc-adm-confusion-table" id="confusionTable" aria-describedby="confusionNote">
+                  </table>
+                </div>
+                <p id="confusionNote" class="cc-adm-panel-note">
+                  Rows = actual category, columns = predicted category. Diagonal cells (highlighted green)
+                  are correct predictions; off-diagonal cells with a count &gt; 0 (highlighted rust) are
+                  confusions between two different categories.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zero-shot vs few-shot comparison -->
+          <div class="row g-4">
+            <div class="col-12">
+              <div class="cc-adm-panel">
+                <h2 class="cc-adm-panel-title">Zero-shot vs. Few-shot Comparison</h2>
+                <div id="comparisonAvailable" class="d-none">
+                  <div class="table-responsive">
+                    <table class="cc-adm-table">
+                      <thead>
+                        <tr>
+                          <th>Metric</th>
+                          <th class="cc-adm-num">Zero-shot</th>
+                          <th class="cc-adm-num">Few-shot</th>
+                          <th class="cc-adm-num">Difference</th>
+                        </tr>
+                      </thead>
+                      <tbody id="comparisonTableBody">
+                      </tbody>
+                    </table>
+                  </div>
+                  <div id="comparisonConclusion" class="cc-adm-comparison-conclusion"></div>
+                </div>
+                <div id="comparisonUnavailable" class="d-none text-center py-4">
+                  <i class="bi bi-clipboard-x" style="font-size:1.75rem;color:var(--cc-rust);" aria-hidden="true"></i>
+                  <p id="comparisonUnavailableMessage" class="cc-adm-panel-note mt-2 mb-0"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /#dashboardContent -->
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="cc-footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+        <p class="cc-footer-copy mb-0">&copy; 2026 CropCare AI. Built for farmers.</p>
+        <p class="cc-footer-copy mb-0">Evaluation dashboard — read-only, sourced from on-disk evaluation artifacts.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+  <script src="../static/js/dashboard.js"></script>
+</body>
+</html>

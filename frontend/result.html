@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Classification Result — AGRI QUREY</title>
+  <meta name="description" content="See what kind of crop-disease information your question was classified as.">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Fonts: Fraunces (display) + Work Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ===== Navbar ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg sticky-top cc-navbar" aria-label="Primary">
+      <div class="container">
+        <a class="navbar-brand cc-brand" href="index.html">
+          <span class="cc-brand-mark" aria-hidden="true">🌱</span>
+          <span>AGRIQUREY <span class="cc-brand-accent">AI</span></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ccNavMenu"
+          aria-controls="ccNavMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ccNavMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="history.html">History</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="cc-result-page">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+
+            <p class="cc-kicker text-center">Step 2 · Your result</p>
+            <h1 class="cc-result-page-title text-center">Your Classification Result</h1>
+
+            <!-- ===== Populated by result.js on success ===== -->
+            <div id="resultView" class="d-none">
+
+              <div class="cc-result-card">
+                <div class="cc-result-card-head">
+                  <div>
+                    <p class="cc-result-label">Original question</p>
+                    <p id="resultQuestion" class="cc-result-question"></p>
+                  </div>
+                  <div id="resultCropWrap" class="cc-result-crop d-none">
+                    <i class="bi bi-flower1" aria-hidden="true"></i>
+                    <span id="resultCrop"></span>
+                  </div>
+                </div>
+
+                <hr class="cc-result-divider">
+
+                <div class="cc-result-category-row">
+                  <div id="categoryBadge" class="cc-category-badge">
+                    <span id="categoryIcon" class="cc-category-badge-icon" aria-hidden="true">🌱</span>
+                    <span id="categoryName" class="cc-category-badge-text"></span>
+                  </div>
+                </div>
+
+                <div class="cc-confidence-block">
+                  <div class="cc-confidence-label-row">
+                    <span class="cc-confidence-label">Confidence</span>
+                    <span id="confidenceValue" class="cc-confidence-value"></span>
+                  </div>
+                  <div class="progress cc-confidence-bar" role="progressbar" id="confidenceBar"
+                       aria-label="Classification confidence" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <div id="confidenceBarFill" class="progress-bar cc-confidence-bar-fill" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <div class="cc-reason-block">
+                  <h2 class="cc-reason-title">Why this category?</h2>
+                  <p id="resultReason" class="cc-reason-text"></p>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 cc-result-actions">
+                <a href="ask.html" class="btn btn-lg cc-btn-primary">
+                  <i class="bi bi-arrow-repeat me-2" aria-hidden="true"></i>Ask Another Question
+                </a>
+                <a href="history.html" class="btn btn-lg cc-btn-ghost">
+                  <i class="bi bi-clock-history me-2" aria-hidden="true"></i>View History
+                </a>
+              </div>
+            </div>
+
+            <!-- ===== "Unable to Classify" state ===== -->
+            <div id="unclassifiedView" class="d-none">
+              <div class="cc-result-card cc-result-card-muted text-center">
+                <i class="bi bi-question-circle cc-unclassified-icon" aria-hidden="true"></i>
+                <h2 class="cc-unclassified-title">Unable to classify this question.</h2>
+                <p class="cc-unclassified-text">Please ask a crop-disease-related question.</p>
+                <p id="unclassifiedQuestionWrap" class="cc-result-label mt-3 mb-0">
+                  You asked: <span id="unclassifiedQuestion" class="cc-result-question-inline"></span>
+                </p>
+              </div>
+              <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 cc-result-actions">
+                <a href="ask.html" class="btn btn-lg cc-btn-primary">
+                  <i class="bi bi-arrow-repeat me-2" aria-hidden="true"></i>Ask Another Question
+                </a>
+              </div>
+            </div>
+
+            <!-- ===== No result found in localStorage ===== -->
+            <div id="emptyView" class="d-none">
+              <div class="cc-result-card cc-result-card-muted text-center">
+                <i class="bi bi-inbox cc-unclassified-icon" aria-hidden="true"></i>
+                <h2 class="cc-unclassified-title">No result to show yet.</h2>
+                <p class="cc-unclassified-text">
+                  We couldn't find a classification result. Please ask a question first.
+                </p>
+              </div>
+              <div class="d-flex justify-content-center cc-result-actions">
+                <a href="ask.html" class="btn btn-lg cc-btn-primary">
+                  <i class="bi bi-chat-dots-fill me-2" aria-hidden="true"></i>Ask a Question
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="cc-footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4">
+          <a class="cc-brand cc-footer-brand" href="index.html">
+            <span aria-hidden="true">🌱</span>
+            <span>CropCare <span class="cc-brand-accent">AI</span></span>
+          </a>
+          <p class="cc-footer-text">
+            Helping farmers understand what kind of crop-disease information they're looking for.
+          </p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h4 class="cc-footer-heading">Navigate</h4>
+          <ul class="cc-footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h4 class="cc-footer-heading">Categories</h4>
+          <ul class="cc-footer-links">
+            <li>Symptoms</li>
+            <li>Prevention</li>
+            <li>Management</li>
+            <li>General Information</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h4 class="cc-footer-heading">Please note</h4>
+          <p class="cc-footer-text">
+            This tool classifies questions only. It does not diagnose crop diseases or replace
+            professional agricultural advice.
+          </p>
+        </div>
+      </div>
+      <hr class="cc-footer-rule">
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+        <p class="cc-footer-copy mb-0">&copy; 2026 CropCare AI. Built for farmers.</p>
+        <p class="cc-footer-copy mb-0">A question classifier, not a diagnostic tool.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/js/result.js"></script>
+</body>
+</html>

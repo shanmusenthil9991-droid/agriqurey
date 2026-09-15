@@ -1,0 +1,211 @@
+id,question,crop,category
+121,Which season is root rot most common in Cotton?,Cotton,General Information
+233,What is this Potato disease called,Potato,General Information
+116,Which season is yellow rust most common in Wheat?,Wheat,General Information
+79,What causes loose smut?,Wheat,General Information
+222,Best way to prevent maize streak virus in Maize plants?,Maize,Prevention
+124,What visible changes appear on Cotton when infected with bacterial blight?,Cotton,Symptoms
+63,"My Rice leaves have brown patches, is this brown spot?",Rice,Symptoms
+40,Which fungicide works for late blight in Tomato?,Tomato,Management
+186,How can I reduce yield loss from common rust in Maize?,Maize,Management
+231,What type of pathogen causes stalk rot in Maize?,Maize,General Information
+197,How save Maize crop after infection,Maize,Management
+107,Signs of turcicum leaf blight?,Maize,Symptoms
+150,How stop disease coming again in Wheat field,Wheat,Prevention
+297,Which fungicide works for leaf rust in Wheat?,Wheat,Management
+215,"Leaf curling in Potato, is it disease?",Potato,Symptoms
+113,What spray now for Tomato disease,Tomato,Management
+245,What are the symptoms of leaf curl virus in Cotton?,Cotton,Symptoms
+281,What is the recommended dosage of fungicide for downy mildew in Maize?,Maize,Management
+287,What is the best way to manage loose smut in an infected field?,Wheat,Management
+184,How can I reduce yield loss from common scab?,Potato,Management
+182,How to treat early blight in Potato?,Potato,Management
+165,How to avoid bacterial leaf blight before it starts in Rice?,Rice,Prevention
+26,What should I do before planting Wheat to avoid karnal bunt?,Wheat,Prevention
+24,How to avoid early blight before it starts in Potato?,Potato,Prevention
+261,How do I identify downy mildew on the leaves?,Maize,Symptoms
+218,My Wheat plants are already infected with powdery mildew. How can I manage it?,Wheat,Management
+202,What treatment should I use for early blight in Potato?,Potato,Management
+70,What precautions should I take this season to avoid yellow rust?,Wheat,Prevention
+158,What type of pathogen causes early blight in Potato?,Potato,General Information
+140,"Tomato leaves have spots, why?",Tomato,Symptoms
+144,What spray now for Cotton disease,Cotton,Management
+162,How to avoid root rot before it starts in Cotton?,Cotton,Prevention
+155,How can I reduce yield loss from stalk rot?,Maize,Management
+67,How can I keep my Potato field safe from early blight this season?,Potato,Prevention
+292,My Rice plants are already infected with brown spot. How can I manage it?,Rice,Management
+108,How do I control bacterial blight once it has spread?,Cotton,Management
+178,How can I keep my Tomato field safe from bacterial spot this season?,Tomato,Prevention
+275,Can you tell me about bacterial leaf blight in Rice?,Rice,General Information
+45,How to avoid late blight before it starts in Potato?,Potato,Prevention
+52,How to treat powdery mildew in Wheat?,Wheat,Management
+198,What should I do before planting Tomato to avoid fusarium wilt?,Tomato,Prevention
+135,"Field full of disease in Wheat, help",Wheat,Management
+7,What are the symptoms of sheath blight in Rice?,Rice,Symptoms
+88,What is the recommended dosage of fungicide for turcicum leaf blight in Maize?,Maize,Management
+51,What are the first signs of rice blast on Rice?,Rice,Symptoms
+49,Which pesticide works for yellow rust?,Wheat,Management
+152,What is the recommended dosage of fungicide for bacterial spot in Tomato?,Tomato,Management
+133,"My Rice leaves have rotting stems, is this tungro virus?",Rice,Symptoms
+238,Which fungicide works for fusarium wilt in Tomato?,Tomato,Management
+82,How to treat late blight in Potato?,Potato,Management
+73,What is the best way to manage boll rot in infected Cotton fields?,Cotton,Management
+264,What conditions favor common rust?,Maize,General Information
+256,How can I avoid common rust before it starts?,Maize,Prevention
+100,What is boll rot?,Cotton,General Information
+122,"My plants have white powdery coating, what could it be?",Tomato,Symptoms
+106,Are there resistant Potato varieties to prevent potato virus Y?,Potato,Prevention
+296,Which season is bacterial spot most common in Tomato?,Tomato,General Information
+109,Tell me about Wheat plant disease,Wheat,General Information
+136,What conditions favor leaf curl virus in Cotton?,Cotton,General Information
+138,Which pesticide works for common rust?,Maize,Management
+5,Potato disease prevention tips please,Potato,Prevention
+268,How does early blight affect Tomato yield in general?,Tomato,General Information
+98,What is leaf curl virus?,Cotton,General Information
+290,What is fusarium wilt?,Cotton,General Information
+104,Can you tell me about early blight in Potato?,Potato,General Information
+139,What is the best way to manage fusarium wilt in an infected field?,Tomato,Management
+120,How do I identify bacterial blight on Cotton plants?,Cotton,Symptoms
+46,How do I control tungro virus once it has spread in Rice?,Rice,Management
+36,Maize disease information please,Maize,General Information
+206,"Leaf curling in Rice, is it disease?",Rice,Symptoms
+232,What are the symptoms of leaf curl virus in Tomato?,Tomato,Symptoms
+185,Can you tell me about sheath blight?,Rice,General Information
+92,Which season is stalk rot most common in?,Maize,General Information
+111,What does downy mildew look like on Maize leaves?,Maize,Symptoms
+6,Signs of bacterial blight?,Cotton,Symptoms
+44,Are there resistant varieties available to prevent sheath blight?,Rice,Prevention
+86,Can you tell me about leaf curl virus in Tomato?,Tomato,General Information
+258,"My Wheat leaves have rotting stems, is this karnal bunt?",Wheat,Symptoms
+29,What spray now for Wheat disease,Wheat,Management
+169,How can I prevent rice blast in Rice?,Rice,Prevention
+226,How can I tell if the crop has bacterial spot?,Tomato,Symptoms
+230,How can I keep my Tomato field safe from fusarium wilt this season?,Tomato,Prevention
+16,How do I control blackleg once it has spread in Potato?,Potato,Management
+148,What is this Maize disease called,Maize,General Information
+229,Tell me about Potato plant disease,Potato,General Information
+131,How save Cotton crop after infection,Cotton,Management
+216,How do I stop early blight from spreading in the field?,Tomato,Prevention
+41,Prevent leaf curl virus in Cotton?,Cotton,Prevention
+171,"Field full of disease in Maize, help",Maize,Management
+276,What treatment should I use for downy mildew?,Maize,Management
+277,How can I avoid early blight before it starts?,Tomato,Prevention
+60,What is common scab?,Potato,General Information
+266,What causes brown spot in Rice?,Rice,General Information
+59,What is the best way to manage common rust in an infected field?,Maize,Management
+71,How can I prevent boll rot in Cotton?,Cotton,Prevention
+172,My Maize plants are already infected with common rust. How can I manage it?,Maize,Management
+101,What type of pathogen causes fusarium wilt in Tomato?,Tomato,General Information
+62,How do I control common scab once it has spread?,Potato,Management
+14,What treatment should I use for fusarium wilt in Tomato?,Tomato,Management
+242,How can I prevent early blight in Potato?,Potato,Prevention
+129,"Rice leaves have spots, why?",Rice,Symptoms
+212,What preventive measures should I take against maize streak virus?,Maize,Prevention
+10,Wheat already sick what medicine,Wheat,Management
+153,Which season is leaf curl virus most common in Tomato?,Tomato,General Information
+81,Why my Rice plant leaf dying,Rice,Symptoms
+170,How do I identify root rot on the leaves?,Cotton,Symptoms
+159,How does fusarium wilt affect Tomato yield in general?,Tomato,General Information
+61,How do I identify root rot on Cotton plants?,Cotton,Symptoms
+195,My Maize plants are already infected with maize streak virus. How can I manage it?,Maize,Management
+141,Why are my Tomato leaves turning yellow?,Tomato,Symptoms
+204,Can you tell me about bacterial spot in Tomato?,Tomato,General Information
+187,What type of pathogen causes karnal bunt in Wheat?,Wheat,General Information
+299,What are the symptoms of turcicum leaf blight in Maize?,Maize,Symptoms
+270,Best way to prevent powdery mildew in Wheat plants?,Wheat,Prevention
+221,How do I control bacterial spot once it has spread?,Tomato,Management
+183,Which season is downy mildew most common in?,Maize,General Information
+286,What causes leaf curl virus in Tomato?,Tomato,General Information
+64,Rice disease information please,Rice,General Information
+273,Early symptoms of leaf rust in Wheat crop?,Wheat,Symptoms
+190,How does common rust affect Maize yield in general?,Maize,General Information
+269,What conditions favor late blight in Tomato?,Tomato,General Information
+225,What type of pathogen causes fusarium wilt in Cotton?,Cotton,General Information
+132,How can I prevent common scab in Potato?,Potato,Prevention
+102,What treatment should I use for karnal bunt in Wheat?,Wheat,Management
+97,How can I keep my Cotton field safe from leaf curl virus this season?,Cotton,Prevention
+112,How do I control potato virus Y once it has spread in Potato?,Potato,Management
+241,What does maize streak virus look like on Maize leaves?,Maize,Symptoms
+54,What treatment should I use for bacterial spot?,Tomato,Management
+174,How to avoid yellow rust before it starts in Wheat?,Wheat,Prevention
+180,How does boll rot spread between Cotton plants?,Cotton,General Information
+214,Which pesticide works for turcicum leaf blight?,Maize,Management
+145,How does late blight affect Tomato yield in general?,Tomato,General Information
+253,What steps can I take to prevent this disease before planting?,Rice,Prevention
+289,What should I do before planting Wheat to avoid yellow rust?,Wheat,Prevention
+228,Can you tell me about common scab in Potato?,Potato,General Information
+143,What type of pathogen causes root rot in Cotton?,Cotton,General Information
+224,Can you tell me about brown spot in Rice?,Rice,General Information
+69,Prevent boll rot in Cotton?,Cotton,Prevention
+78,What conditions favor late blight?,Tomato,General Information
+65,How does potato virus Y spread between Potato plants?,Potato,General Information
+249,Best way to prevent late blight in Tomato plants?,Tomato,Prevention
+265,Are there resistant varieties available to prevent stalk rot?,Maize,Prevention
+291,How do I identify leaf rust on Wheat plants?,Wheat,Symptoms
+164,Signs of downy mildew in Maize?,Maize,Symptoms
+11,How can I keep my Rice field safe from bacterial leaf blight this season?,Rice,Prevention
+280,What precautions should I take this season to avoid brown spot?,Rice,Prevention
+246,How can I prevent powdery mildew in Wheat?,Wheat,Prevention
+142,How do I identify stalk rot on Maize plants?,Maize,Symptoms
+189,How can I tell if my Potato has blackleg?,Potato,Symptoms
+28,Tell me about Maize plant disease,Maize,General Information
+243,Are there resistant Wheat varieties to prevent leaf rust?,Wheat,Prevention
+77,What causes turcicum leaf blight in Maize?,Maize,General Information
+209,My Maize plants are already infected with downy mildew. How can I manage it?,Maize,Management
+210,What does root rot look like on Cotton leaves?,Cotton,Symptoms
+250,What visible changes should I expect with common scab?,Potato,Symptoms
+43,How can I avoid brown spot before it starts?,Rice,Prevention
+181,Signs of fusarium wilt in Tomato?,Tomato,Symptoms
+213,How to avoid karnal bunt before it starts in Wheat?,Wheat,Prevention
+278,Which fungicide works for maize streak virus in Maize?,Maize,Management
+257,What preventive measures should I take against fusarium wilt?,Cotton,Prevention
+126,How can I tell if the crop has root rot?,Cotton,Symptoms
+298,What visible changes appear on Tomato when infected with late blight?,Tomato,Symptoms
+134,What is the best way to manage powdery mildew in infected Wheat fields?,Wheat,Management
+161,What visible changes appear on Cotton when infected with leaf curl virus?,Cotton,Symptoms
+91,"Cotton leaves have spots, why?",Cotton,Symptoms
+50,How can I tell if my Maize has maize streak virus?,Maize,Symptoms
+251,How to treat common scab once it appears?,Potato,Management
+167,Prevent early blight in Tomato?,Tomato,Prevention
+175,Why are my Maize leaves turning yellow?,Maize,Symptoms
+35,Early symptoms of late blight in Tomato crop?,Tomato,Symptoms
+33,How stop disease coming again in Potato field,Potato,Prevention
+188,How do I control rice blast once it has spread in Rice?,Rice,Management
+271,How can I avoid blackleg before it starts?,Potato,Prevention
+18,"My plants have yellow spots, what could it be?",Cotton,Symptoms
+149,What spray before planting Cotton,Cotton,Prevention
+284,"Maize leaves have spots, why?",Maize,Symptoms
+27,How do I identify boll rot on Cotton plants?,Cotton,Symptoms
+119,How can I tell if the crop has boll rot?,Cotton,Symptoms
+38,What is this Wheat disease called,Wheat,General Information
+47,Signs of karnal bunt in Wheat?,Wheat,Symptoms
+295,What type of pathogen causes downy mildew?,Maize,General Information
+20,How can I keep my Cotton field safe from bacterial blight this season?,Cotton,Prevention
+300,Is this disease dangerous for Rice,Rice,General Information
+259,What are the symptoms of blackleg in Potato?,Potato,Symptoms
+118,How does blackleg affect Potato yield in general?,Potato,General Information
+66,What should I do before planting Potato to avoid early blight?,Potato,Prevention
+128,Which fungicide works for common scab in Potato?,Potato,Management
+227,Prevent karnal bunt in Wheat?,Wheat,Prevention
+240,What treatment should I use for powdery mildew in Wheat?,Wheat,Management
+219,How do I stop fusarium wilt from spreading in my Cotton field?,Cotton,Prevention
+157,What causes fusarium wilt in Cotton?,Cotton,General Information
+72,How can I reduce yield loss from late blight in Potato?,Potato,Management
+25,What causes late blight?,Potato,General Information
+267,What are the first signs of yellow rust on Wheat?,Wheat,Symptoms
+263,Best way to prevent leaf rust in Wheat plants?,Wheat,Prevention
+156,What visible changes appear on Rice when infected with brown spot?,Rice,Symptoms
+105,What are the first signs of bacterial leaf blight on Rice?,Rice,Symptoms
+95,Is this disease dangerous for Tomato,Tomato,General Information
+173,Best way to prevent common scab in Potato plants?,Potato,Prevention
+75,What is the best way to manage sheath blight in infected Rice fields?,Rice,Management
+244,How save Potato crop after infection,Potato,Management
+48,What causes bacterial spot?,Tomato,General Information
+83,Are there resistant Wheat varieties to prevent yellow rust?,Wheat,Prevention
+53,"Wheat leaves have spots, why?",Wheat,Symptoms
+15,How do I identify late blight on the leaves?,Tomato,Symptoms
+179,What is leaf rust?,Wheat,General Information
+31,"Cotton plant showing black lesions, what disease is this?",Cotton,Symptoms
+262,My Tomato plants are already infected with fusarium wilt. How can I manage it?,Tomato,Management
+115,How can I keep my Rice field safe from rice blast this season?,Rice,Prevention
+85,How to save Cotton from disease before season,Cotton,Prevention

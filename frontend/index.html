@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGRIQUREY — Understand Your Crop Disease Questions</title>
+  <meta name="description" content="CropCare AI reads your crop-disease question and tells you what kind of agricultural information you're asking for — symptoms, prevention, management, or general information.">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Fonts: Fraunces (display) + Work Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ===== Navbar ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg sticky-top cc-navbar" aria-label="Primary">
+      <div class="container">
+        <a class="navbar-brand cc-brand" href="#home">
+          <span class="cc-brand-mark" aria-hidden="true">🌱</span>
+          <span>AGRIQUREY <span class="cc-brand-accent">AI</span></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ccNavMenu"
+          aria-controls="ccNavMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ccNavMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="ask.html">Ask Question</a></li>
+            <li class="nav-item"><a class="nav-link" href="history.html">History</a></li>
+            <li class="nav-item ms-lg-3">
+              <a class="btn cc-btn-primary btn-sm" href="ask.html">Ask a Question</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ===== Hero ===== -->
+    <section id="home" class="cc-hero">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-7">
+            <p class="cc-kicker">A question-understanding tool for farmers</p>
+            <h1 class="cc-hero-title">Understand your crop&nbsp;disease questions with AI</h1>
+            <p class="cc-hero-subtitle">
+              Ask a crop-disease-related question and discover what type of agricultural
+              information you need — before you go looking for an answer.
+            </p>
+            <div class="d-flex flex-column flex-sm-row gap-3 cc-hero-actions">
+              <a href="ask.html" class="btn btn-lg cc-btn-primary">
+                <i class="bi bi-chat-dots-fill me-2" aria-hidden="true"></i>Ask a Question
+              </a>
+            </div>
+            <p class="cc-hero-note">
+              <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
+              CropCare AI classifies your <em>question</em> — it does not diagnose plant disease.
+            </p>
+          </div>
+          <div class="col-lg-5">
+            <div class="cc-hero-art" aria-hidden="true">
+              <div class="cc-hero-art-card">
+                <i class="bi bi-flower2"></i>
+                <p class="cc-hero-art-line">"Why are my tomato leaves turning yellow with brown spots?"</p>
+                <div class="cc-hero-art-tag">
+                  <i class="bi bi-arrow-down-short"></i>
+                  <span>Category: Symptoms</span>
+                </div>
+              </div>
+              <div class="cc-hero-leaf cc-leaf-1"><i class="bi bi-leaf-fill"></i></div>
+              <div class="cc-hero-leaf cc-leaf-2"><i class="bi bi-leaf-fill"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cc-hero-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,32 C320,80 720,0 1440,48 L1440,80 L0,80 Z"></path></svg>
+      </div>
+    </section>
+
+    <!-- ===== Category cards ===== -->
+    <section id="categories" class="cc-section">
+      <div class="container">
+        <div class="cc-section-head">
+          <h2 class="cc-section-title">Four kinds of answers, one question box</h2>
+          <p class="cc-section-subtitle">
+            Every farmer question fits into one of these categories. CropCare AI figures out which
+            one applies to yours.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="cc-cat-card cc-cat-symptoms">
+              <div class="cc-cat-icon"><i class="bi bi-clipboard2-pulse"></i></div>
+              <h3 class="cc-cat-title">Symptoms</h3>
+              <p class="cc-cat-text">What a disease looks like on leaves, stems, fruit, or roots.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="cc-cat-card cc-cat-prevention">
+              <div class="cc-cat-icon"><i class="bi bi-shield-check"></i></div>
+              <h3 class="cc-cat-title">Prevention</h3>
+              <p class="cc-cat-text">How to stop a disease from reaching or spreading through a crop.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="cc-cat-card cc-cat-management">
+              <div class="cc-cat-icon"><i class="bi bi-tools"></i></div>
+              <h3 class="cc-cat-title">Management</h3>
+              <p class="cc-cat-text">Steps and treatments for handling a disease that's already present.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="cc-cat-card cc-cat-general">
+              <div class="cc-cat-icon"><i class="bi bi-book"></i></div>
+              <h3 class="cc-cat-title">General Information</h3>
+              <p class="cc-cat-text">Background on a disease, crop, or farming practice in general.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Ask call-to-action ===== -->
+    <section id="ask" class="cc-section cc-ask-teaser">
+      <div class="container">
+        <div class="cc-ask-card">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+              <h2 class="cc-ask-title">Ready to ask your question?</h2>
+              <p class="cc-ask-text">
+                Describe your crop-disease question in plain language and CropCare AI will
+                tell you which of the four information categories it belongs to.
+              </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="ask.html" class="btn btn-lg cc-btn-primary">
+                <i class="bi bi-chat-dots-fill me-2" aria-hidden="true"></i>Ask a Question
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="cc-footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4">
+          <a class="cc-brand cc-footer-brand" href="#home">
+            <span aria-hidden="true">🌱</span>
+            <span>CropCare <span class="cc-brand-accent">AI</span></span>
+          </a>
+          <p class="cc-footer-text">
+            Helping farmers understand what kind of crop-disease information they're looking for.
+          </p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h4 class="cc-footer-heading">Navigate</h4>
+          <ul class="cc-footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="ask.html">Ask Question</a></li>
+            <li><a href="history.html">History</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h4 class="cc-footer-heading">Categories</h4>
+          <ul class="cc-footer-links">
+            <li>Symptoms</li>
+            <li>Prevention</li>
+            <li>Management</li>
+            <li>General Information</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h4 class="cc-footer-heading">Please note</h4>
+          <p class="cc-footer-text">
+            This tool classifies questions only. It does not diagnose crop diseases or replace
+            professional agricultural advice.
+          </p>
+        </div>
+      </div>
+      <hr class="cc-footer-rule">
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+        <p class="cc-footer-copy mb-0">&copy; 2026 CropCare AI. Built for farmers.</p>
+        <p class="cc-footer-copy mb-0">A question classifier, not a diagnostic tool.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/js/main.js"></script>
+</body>
+</html>

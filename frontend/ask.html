@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ask Your Crop Disease Question —  AGRI QUREY</title>
+  <meta name="description" content="Ask your crop-disease question in plain language and CropCare AI will tell you what kind of information you're looking for.">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Fonts: Fraunces (display) + Work Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ===== Navbar ===== -->
+  <header>
+    <nav class="navbar navbar-expand-lg sticky-top cc-navbar" aria-label="Primary">
+      <div class="container">
+        <a class="navbar-brand cc-brand" href="index.html">
+          <span class="cc-brand-mark" aria-hidden="true">🌱</span>
+          <span>AGRIQUREY <span class="cc-brand-accent">AI</span></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ccNavMenu"
+          aria-controls="ccNavMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ccNavMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="history.html">History</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="cc-ask-page">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+
+            <p class="cc-kicker text-center">Step 1 of the classification process</p>
+            <h1 class="cc-ask-page-title text-center">Ask Your Crop Disease Question</h1>
+            <p class="cc-ask-page-subtitle text-center">
+              Tell us about your crop and describe your question the way you'd say it out
+              loud. We'll tell you what kind of information you're asking for.
+            </p>
+
+            <form id="askForm" class="cc-form-card" novalidate>
+
+              <!-- Live region for status / error announcements -->
+              <div id="formStatus" class="visually-hidden" role="status" aria-live="polite"></div>
+
+              <div class="mb-4">
+                <label for="cropSelect" class="cc-form-label">Which crop is this about?</label>
+                <select class="form-select cc-form-select" id="cropSelect" name="crop">
+                  <option value="" selected>Select Crop</option>
+                  <option value="Rice">Rice</option>
+                  <option value="Tomato">Tomato</option>
+                  <option value="Potato">Potato</option>
+                  <option value="Wheat">Wheat</option>
+                  <option value="Maize">Maize</option>
+                  <option value="Cotton">Cotton</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div class="cc-form-hint">Optional, but it helps sharpen the classification.</div>
+              </div>
+
+              <div class="mb-2">
+                <label for="questionText" class="cc-form-label">What's your question?</label>
+                <textarea
+                  class="form-control cc-form-textarea"
+                  id="questionText"
+                  name="question"
+                  rows="5"
+                  maxlength="500"
+                  placeholder="Example: What are the symptoms of disease affecting my tomato leaves?"
+                  aria-describedby="charCounter questionError"
+                ></textarea>
+                <div class="cc-form-footer">
+                  <div id="questionError" class="cc-form-error" role="alert"></div>
+                  <div id="charCounter" class="cc-char-counter">0 / 500</div>
+                </div>
+              </div>
+
+              <div id="submitError" class="cc-alert-error d-none" role="alert">
+                <i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i>
+                <span id="submitErrorText"></span>
+              </div>
+
+              <button type="submit" id="submitBtn" class="btn btn-lg cc-btn-primary w-100 w-sm-auto">
+                <span id="submitBtnLabel">
+                  <i class="bi bi-chat-dots-fill me-2" aria-hidden="true"></i>Classify Question
+                </span>
+                <span id="submitBtnLoading" class="d-none">
+                  <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  Analyzing your question...
+                </span>
+              </button>
+
+              <p class="cc-form-note">
+                <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
+                This tool classifies your question into a category. It does not diagnose your
+                crop's disease.
+              </p>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="cc-footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4">
+          <a class="cc-brand cc-footer-brand" href="index.html">
+            <span aria-hidden="true">🌱</span>
+            <span>CropCare <span class="cc-brand-accent">AI</span></span>
+          </a>
+          <p class="cc-footer-text">
+            Helping farmers understand what kind of crop-disease information they're looking for.
+          </p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h4 class="cc-footer-heading">Navigate</h4>
+          <ul class="cc-footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h4 class="cc-footer-heading">Categories</h4>
+          <ul class="cc-footer-links">
+            <li>Symptoms</li>
+            <li>Prevention</li>
+            <li>Management</li>
+            <li>General Information</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h4 class="cc-footer-heading">Please note</h4>
+          <p class="cc-footer-text">
+            This tool classifies questions only. It does not diagnose crop diseases or replace
+            professional agricultural advice.
+          </p>
+        </div>
+      </div>
+      <hr class="cc-footer-rule">
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+        <p class="cc-footer-copy mb-0">&copy; 2026 CropCare AI. Built for farmers.</p>
+        <p class="cc-footer-copy mb-0">A question classifier, not a diagnostic tool.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/js/classifier.js"></script>
+</body>
+</html>
